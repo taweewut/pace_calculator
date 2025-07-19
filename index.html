@@ -7,7 +7,7 @@
   <meta property="og:image" content="https://taweewut.github.io/pace_calculator/cover.jpg">
   <meta property="og:url" content="https://taweewut.github.io/pace_calculator/">
   <meta property="og:type" content="website">
-  <title>เครื่องคำนวณเพซซ้อมวิ่ง (VDOT/Session Planner)</title>
+  <title>เครื่องคำนวณเพซซ้อมวิ่ง (Critical Velocity Planner)</title>
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
@@ -28,7 +28,7 @@
     <img src="Logo.png" alt="Logo" style="max-width: 150px; display: block; margin: 0 auto 20px;">
     <h1>เครื่องคำนวณเพซซ้อมวิ่งจาก Critical Velocity</h1>
     <h2>Session Pace & Distance Calculator by Critical Velocity</h2>
-    <p>เครื่องคำนวณนี้ช่วยให้คุณวางแผนการฝึกซ้อมวิ่งตาม Critical Velocity (CV) โดยอิงจากเวลา PB ของคุณในการวิ่ง Mini-Marathon 10.5 กม.</p>
+    <p>เครื่องคำนวณนี้ช่วยให้คุณวางแผนการฝึกซ้อมวิ่งตาม Critical Velocity (CV) โดยอิงจากเวลา PB ของคุณในการวิ่งระยะทาง 10 กม.</p>
 
     <div style="margin-top: 20px; padding: 15px; background-color: #f0f8ff; border-left: 5px solid #007bff;">
       <strong>💻 อ่านเนื้อหาบลอกหรือฟังพอดคาสตอนนี้:</strong><br>
@@ -44,10 +44,10 @@
       <option value="mile">ไมล์</option>
     </select>
 
-    <label for="pbTime">เวลา PB Mini-Marathon 10.5Km (นาที):</label>
+    <label for="pbTime">เวลา PB 10Km (นาที):</label>
     <input type="number" id="pbTime" placeholder="เช่น 60">
 
-    <label for="weeklyMiles" id="weeklyLabel">ระยะทางรวม/สัปดาห์ (กม.):</label>
+    <label for="weeklyMiles" id="weeklyLabel"> ระยะทางรวมในการซ้อม/สัปดาห์ (กม.):</label>
     <input type="number" id="weeklyMiles" placeholder="เช่น 24">
 
     <button onclick="calculate()">คำนวณ</button>
@@ -69,7 +69,7 @@
       const weekly = parseFloat(document.getElementById('weeklyMiles').value);
       const unit = document.getElementById('unit').value;
 
-      const raceDistance = 10.5; // Always use 10.5 km regardless of selected unit
+      const raceDistance = 10; // Always use 10 km regardless of selected unit
       const paceUnitLabel = (unit === 'km') ? 'นาที/กม.' : 'นาที/ไมล์';
       const speedUnitLabel = (unit === 'km') ? 'กม./ชม' : 'ไมล์/ชม';
 
@@ -253,7 +253,7 @@
     document.getElementById('unit').addEventListener('change', function () {
       const unit = this.value;
       const label = document.getElementById('weeklyLabel');
-      label.textContent = `ระยะทางรวม/สัปดาห์ (${unit === 'km' ? 'กม.' : 'ไมล์'}):`;
+      label.textContent = `ระยะทางรวมในการซ้อม/สัปดาห์ (${unit === 'km' ? 'กม.' : 'ไมล์'}):`;
     });
 
     function captureResult() {
